@@ -1,4 +1,3 @@
-// Wait until the DOM content is fully loaded
 document.addEventListener('DOMContentLoaded', function () {
     // Select DOM elements
     const addButton = document.getElementById('add-task-btn');
@@ -23,14 +22,14 @@ document.addEventListener('DOMContentLoaded', function () {
         // Add click event listener to remove the task
         removeButton.onclick = function () {
             taskList.removeChild(taskItem);
-            removeTaskFromLocalStorage(taskText);
+            removeTaskFromLocalStorage(taskText);  // Remove task from Local Storage
         };
 
         // Append remove button to the task item and task item to the list
         taskItem.appendChild(removeButton);
         taskList.appendChild(taskItem);
 
-        // If we want to save the task (when it's a new task), update local storage
+        // If saving to Local Storage is required, update Local Storage
         if (saveToLocalStorage) {
             saveTaskToLocalStorage(taskText);
         }
